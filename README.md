@@ -96,6 +96,31 @@ yarn start
 
 The application uses sensible defaults and doesn't require configuration for most users. If your Claude sessions are stored in a different location, you'll need to modify the API routes to point to the correct directory.
 
+## Troubleshooting
+
+### Summary Contamination Issue
+
+Some Claude session files may have summaries appearing in the wrong conversation threads. This happens when Claude's summary line gets saved in the wrong JSONL file. See [anthropics/claude-code#2597](https://github.com/anthropics/claude-code/issues/2597) for more details about this bug. 
+
+To check if you're affected:
+```bash
+yarn analyze-summaries
+```
+
+To fix the issue:
+```bash
+# Dry run first to see what would change
+yarn fix-summaries:dry
+
+# Actually fix the files
+yarn fix-summaries
+```
+
+This will:
+- Remove orphaned summaries from files where they don't belong
+- Preserve the first summary if it matches the session content
+- Create backups before making changes
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
