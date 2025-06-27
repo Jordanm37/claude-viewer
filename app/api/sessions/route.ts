@@ -1,7 +1,8 @@
-import { NextResponse } from 'next/server'
-import fs from 'fs/promises'
-import path from 'path'
-import os from 'os'
+import { NextResponse } from 'next/server';
+import { getSessionThreads } from '@/lib/session-parser';
+import path from 'path';
+import os from 'os';
+import fs from 'fs/promises';
 
 /**
  * GET /api/sessions
@@ -37,7 +38,7 @@ export async function GET() {
     
     // Process each project directory to extract session information
     const projectData = await Promise.all(
-      projects.map(async (projectName) => {
+      projects.map(async (projectName: string) => {
         // Skip hidden files/directories
         if (projectName.startsWith('.')) return null
         
@@ -48,11 +49,11 @@ export async function GET() {
         
         // Get all JSONL session files in the project directory
         const sessions = await fs.readdir(projectPath)
-        const jsonlSessions = sessions.filter(s => s.endsWith('.jsonl'))
+        const jsonlSessions = sessions.filter((s: string) => s.endsWith('.jsonl'))
         
         // Extract metadata and title from each session file
         const sessionData = await Promise.all(
-          jsonlSessions.map(async (sessionFile) => {
+          jsonlSessions.map(async (sessionFile: string) => {
             const sessionPath = path.join(projectPath, sessionFile)
             const sessionStats = await fs.stat(sessionPath)
             

@@ -2,50 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design System - Claude Viewer Premium */
+@layer base {
+  :root {
+    /* Typography Scale */
+    --font-display: -apple-system, "SF Pro Display", "Inter Display", system-ui, sans-serif;
+    --font-text: -apple-system, "SF Pro Text", "Inter", system-ui, sans-serif;
+    --font-mono: "SF Mono", "JetBrains Mono", "Menlo", monospace;
+    
+    /* Spacing Scale (8-point grid) */
+    --space-0: 0;
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 1rem;     /* 16px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 2rem;     /* 32px */
+    --space-5: 2.5rem;   /* 40px */
+    --space-6: 3rem;     /* 48px */
+    --space-8: 4rem;     /* 64px */
+    
+    /* Premium Color System - Light Mode */
+    --color-base: #202020;  /* Premium near-black */
+    --color-bg-primary: #FAFAFA;      /* Warm white */
+    --color-bg-secondary: #F5F5F7;    /* Apple-style gray */
+    --color-bg-tertiary: #FFFFFF;
+    
+    /* Text colors with opacity */
+    --color-text-primary: rgba(32, 32, 32, 0.88);
+    --color-text-secondary: rgba(32, 32, 32, 0.56);
+    --color-text-tertiary: rgba(32, 32, 32, 0.38);
+    
+    /* Accent colors */
+    --color-accent-blue: #007AFF;     /* iOS blue */
+    --color-accent-green: #32D74B;    /* Success green */
+    --color-accent-amber: #FF9F0A;    /* Warning amber */
+    --color-accent-red: #FF453A;      /* Error red */
+    --color-accent-purple: #BF5AF2;   /* AI/Claude purple */
+    --color-accent-orange: rgb(217, 119, 87);  /* Anthropic orange */
+  }
+  
+  .dark {
+    /* Premium Color System - Dark Mode */
+    --color-bg-primary: #202020;      /* Custom near-black */
+    --color-bg-secondary: #2A2A2A;    /* Lifted black */
+    --color-bg-tertiary: #333333;
+    
+    /* Text colors with opacity */
+    --color-text-primary: rgba(255, 255, 255, 0.92);
+    --color-text-secondary: rgba(255, 255, 255, 0.64);
+    --color-text-tertiary: rgba(255, 255, 255, 0.40);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -53,5 +120,251 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+  
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--color-accent-blue);
+    outline-offset: 2px;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Prevent prose overflow */
+.prose {
+  @apply break-words;
+}
+
+.prose pre {
+  @apply max-w-full overflow-x-auto;
+}
+
+.prose img,
+.prose video,
+.prose figure {
+  @apply max-w-full;
+}
+
+/* Force pre blocks to respect container width */
+pre {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure message bubbles don't overflow */
+[data-message-id] {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Force break long strings in pre blocks */
+pre.break-all {
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+}
+
+/* Prevent ScrollArea viewport from expanding horizontally but allow vertical scroll */
+[data-radix-scroll-area-viewport] {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Force ScrollArea content to respect container bounds */
+[data-radix-scroll-area-viewport] > div {
+  max-width: 100% !important;
+}
+
+/* Ensure all content inside messages respects width constraints */
+.message {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.message * {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Force pre blocks to not exceed their containers */
+.message pre {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  word-break: break-all !important;
+  white-space: pre-wrap !important;
+  overflow-x: auto !important;
+}
+
+/* Ensure cards don't exceed width */
+.message .bg-muted\/50,
+.message .border-destructive {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Prevent sidebar wrapper from exceeding viewport */
+.group\/sidebar-wrapper {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Ensure the main app container doesn't overflow */
+.flex.h-screen.bg-background {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Constrain the message list container horizontally only */
+.pb-4.max-w-full.overflow-hidden {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Design System Utilities */
+@layer utilities {
+  /* Typography */
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  
+  .font-text {
+    font-family: var(--font-text);
+    line-height: 1.5;
+  }
+  
+  .font-mono-custom {
+    font-family: var(--font-mono);
+  }
+  
+  /* Spacing utilities */
+  .space-1 { padding: var(--space-1); }
+  .space-2 { padding: var(--space-2); }
+  .space-3 { padding: var(--space-3); }
+  .space-4 { padding: var(--space-4); }
+  
+  /* Colors */
+  .bg-primary-custom { background-color: var(--color-bg-primary); }
+  .bg-secondary-custom { background-color: var(--color-bg-secondary); }
+  .text-primary-custom { color: var(--color-text-primary); }
+  .text-secondary-custom { color: var(--color-text-secondary); }
+  
+  /* Premium backgrounds */
+  .bg-premium-bg-primary { background-color: var(--color-bg-primary); }
+  .bg-premium-bg-secondary { background-color: var(--color-bg-secondary); }
+  .bg-premium-bg-tertiary { background-color: var(--color-bg-tertiary); }
+  
+  /* Premium text colors */
+  .text-premium-text-primary { color: var(--color-text-primary); }
+  .text-premium-text-secondary { color: var(--color-text-secondary); }
+  .text-premium-text-tertiary { color: var(--color-text-tertiary); }
+  
+  /* Premium accents */
+  .bg-premium-accent-blue { background-color: var(--color-accent-blue); }
+  .bg-premium-accent-purple { background-color: var(--color-accent-purple); }
+  .bg-premium-accent-orange { background-color: var(--color-accent-orange); }
+  .text-premium-accent-blue { color: var(--color-accent-blue); }
+  .text-premium-accent-purple { color: var(--color-accent-purple); }
+  .text-premium-accent-orange { color: var(--color-accent-orange); }
+  
+  /* Premium spacing */
+  .p-space-1 { padding: var(--space-1); }
+  .p-space-2 { padding: var(--space-2); }
+  .p-space-3 { padding: var(--space-3); }
+  .p-space-4 { padding: var(--space-4); }
+  .px-space-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+  .px-space-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+  .px-space-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
+  .px-space-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+  .py-space-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+  .py-space-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+  .py-space-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+  .py-space-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+  
+  /* Premium utilities */
+  .rounded-premium { border-radius: 12px; }
+
+  /* Transitions */
+  .transition-premium {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Shimmer effect for loading skeletons */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-secondary) 0%,
+      var(--color-bg-tertiary) 50%,
+      var(--color-bg-secondary) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Animation keyframes */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fade-in 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-delay-75 {
+    animation-delay: 75ms;
+  }
+
+  .animate-delay-150 {
+    animation-delay: 150ms;
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    
+    .shimmer {
+      animation: none;
+      background: var(--color-bg-secondary);
+    }
   }
 }

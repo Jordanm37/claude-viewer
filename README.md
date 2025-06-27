@@ -5,12 +5,17 @@ A modern web application for browsing and viewing Claude conversation session tr
 ## Features
 
 - 📁 **File Tree Navigation**: Browse your Claude sessions organized by project directories
-- 💬 **Chat-Style Interface**: View conversations in a familiar chat format
+- 💬 **Chat-Style Interface**: View conversations in a familiar chat format  
 - 🌗 **Dark Mode Support**: Toggle between light and dark themes
-- 🔍 **Auto-Expand Navigation**: Direct links to sessions automatically expand the file tree
-- 📋 **Copy Session Paths**: Quickly copy JSONL file paths to clipboard
+- 🔍 **Search & Filter**: Search through all your sessions with fuzzy matching
+- ⭐ **Bookmarking**: Star your favorite sessions for quick access
+- 🔄 **Live Updates**: Automatically refreshes when Claude is actively running
+- 📋 **Copy Functionality**: Copy session IDs and tool outputs with visual feedback
 - 📝 **Markdown Rendering**: Full markdown support with syntax highlighting
-- 🛠️ **Tool Visualization**: See tool calls and results in formatted blocks
+- 🛠️ **Tool Visualization**: Specialized renderers for different tool types (bash, file operations, etc.)
+- 📱 **Responsive Design**: Works seamlessly on mobile and desktop
+- ⌨️ **Keyboard Navigation**: Navigate sessions with arrow keys
+- 📤 **Export to Markdown**: Export entire conversations as markdown files
 
 ## Prerequisites
 
@@ -22,7 +27,7 @@ A modern web application for browsing and viewing Claude conversation session tr
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/phpmypython/claude-viewer.git
+git clone <repository-url>
 cd claude-viewer
 ```
 
@@ -67,17 +72,6 @@ When viewing a session, hover over it in the sidebar and click the copy icon to 
 
 ## Development
 
-### Running Tests
-```bash
-# Run all tests
-yarn test
-
-# Run tests in watch mode
-yarn test:watch
-
-# Run tests with UI
-yarn test:ui
-```
 
 ### Building for Production
 ```bash
@@ -91,9 +85,11 @@ yarn start
   /api                  # API routes for reading sessions
   page.tsx              # Main page component
 /components             # React components
-  Sidebar.tsx           # File tree navigation
-  ChatView.tsx          # Conversation display
-/tests                  # Playwright E2E tests
+  /session              # Session-related components
+  /tool-renderers       # Tool call visualization components
+  /ui                   # UI components (buttons, cards, etc.)
+/lib                    # Utility libraries and types
+/hooks                  # Custom React hooks
 ```
 
 ## Configuration
@@ -115,4 +111,4 @@ Built with:
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [react-markdown](https://github.com/remarkjs/react-markdown)
-- [Playwright](https://playwright.dev/) for testing
+- [Radix UI](https://radix-ui.com/) for components
